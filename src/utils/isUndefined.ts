@@ -3,5 +3,6 @@ export const isUndefined = (data: any, mode: 'normal' | 'strict' = 'normal') => 
     return data === undefined
   }
 
+  // @ts-ignore
   return [undefined, 'undefined'].includes(data)
 }

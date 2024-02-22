@@ -14,6 +14,7 @@ const makeQueryParams = (params: QueryParams, key: string, value: string): Query
 }
 export const parseQueryParams = (query?: string | URLSearchParams): QueryParams => {
   if (query instanceof URLSearchParams) {
+    // @ts-ignore
     return [...query.entries()].reduce<QueryParams>((params, [key, value]) => {
       return makeQueryParams(params, key, value)
     }, {})
