@@ -1,21 +1,21 @@
 {
-  "name": "sutu-hooks",
+  "name": "yhooks",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JustinSutu/sutu-hooks.git"
+    "url": "git+https://github.com/JustinSutu/yhooks.git"
   },
   "author": "sutu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JustinSutu/sutu-hooks/issues"
+    "url": "https://github.com/JustinSutu/yhooks/issues"
   },
-  "homepage": "https://github.com/JustinSutu/sutu-hooks#readme",
+  "homepage": "https://github.com/JustinSutu/yhooks#readme",
   "dependencies": {
 
   },
