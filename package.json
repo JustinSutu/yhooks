@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/JustinSutu/sutu-hooks#readme",
   "dependencies": {
-
+    "vue": "^3.4.19"
   },
   "peerDependencies": {
     "react": "^18.2.0",
