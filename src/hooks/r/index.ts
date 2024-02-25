@@ -15,8 +15,12 @@ export { useLocalStorage } from './useLocalStorage'
 
 export { usePagination } from './usePagination'
 
+export { usePrevious } from './usePrevious'
+
 export { useQueryPath } from './useQueryPath'
 export type { QueryParams } from './useQueryPath'
+
+export { useRouter } from './useRouter'
 
 export { useToggle } from './useToggle'
 
