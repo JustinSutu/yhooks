@@ -24,3 +24,5 @@ export { useRouter } from './useRouter'
 
 export { useToggle } from './useToggle'
 
+export { useWhyDidYouUpdate } from './useWhyDidYouUpdate'
+
