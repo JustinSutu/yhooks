@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import type { Ref } from 'vue';
+
 export const useToggle: (initialState?: boolean) => [Ref<boolean>, (state?: boolean) => void] = (
   initialState = false,
 ) => {

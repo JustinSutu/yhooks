@@ -17,16 +17,16 @@
   },
   "homepage": "https://github.com/JustinSutu/yhooks#readme",
   "dependencies": {
-    "vue": "^3.4.19",
     "react": "^18.2.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.1",
+    "vue": "^3.4.20"
   },
   "peerDependencies": {
-    "vue": "^3.4.19",
     "react": "^18.2.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.1",
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "@types/react": "^18.2.58"
-  }
+    "@types/react": "^18.2.58",
+    "@types/vue": "^2.0.0"}
 }
