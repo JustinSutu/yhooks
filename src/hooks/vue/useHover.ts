@@ -1,18 +1,18 @@
-import { onMounted, ref, Ref } from "vue"
+import { onBeforeUnmount, onMounted, ref, Ref } from "vue"
 
 interface Options {
-    delayEnter?: number;
-    delayLeave?: number;
+    delayEnter?: number
+    delayLeave?: number
 }
 
 type UseHover = (options: Options) => {
-    isHover: Ref<boolean>;
-    elementRef: Ref<HTMLElement | null>;
+    isHover: Ref<boolean>
+    elementRef: Ref<HTMLElement | null>
 }
 
 const useHover: UseHover = (options = {}) => {
-    const isHover = ref<boolean>(false);
-    const elementRef = ref<HTMLElement | null>(null);
+    const isHover = ref<boolean>(false)
+    const elementRef = ref<HTMLElement | null>(null)
 
     const {
         delayEnter = 0,
@@ -37,13 +37,21 @@ const useHover: UseHover = (options = {}) => {
     }
     onMounted(() => {
         if (!elementRef.value) {
-            return;
+            return
         }
-        elementRef.value.addEventListener('mouseenter', () => toggle(true));
-        elementRef.value.addEventListener('mouseleave', () => toggle(false));
+        elementRef.value.addEventListener('mouseenter', () => toggle(true))
+        elementRef.value.addEventListener('mouseleave', () => toggle(false))
+    })
+
+    onBeforeUnmount(() => {
+        if (!elementRef.value) {
+            return
+        }
+        elementRef.value.removeEventListener('mouseenter', () => toggle(true))
+        elementRef.value.removeEventListener('mouseleave', () => toggle(false))
     })
 
     return {isHover, elementRef}
 }
 
-export default useHover;
+export default useHover
