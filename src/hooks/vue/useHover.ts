@@ -35,20 +35,23 @@ const useHover: UseHover = (options = {}) => {
             isHover.value = entering
         }
     }
+    const onMouseEnter = () => toggle(true)
+    const onMouseLeave = () => toggle(false)
+
     onMounted(() => {
         if (!elementRef.value) {
             return
         }
-        elementRef.value.addEventListener('mouseenter', () => toggle(true))
-        elementRef.value.addEventListener('mouseleave', () => toggle(false))
+        elementRef.value.addEventListener('mouseenter', onMouseEnter)
+        elementRef.value.addEventListener('mouseleave', onMouseLeave)
     })
 
     onBeforeUnmount(() => {
         if (!elementRef.value) {
             return
         }
-        elementRef.value.removeEventListener('mouseenter', () => toggle(true))
-        elementRef.value.removeEventListener('mouseleave', () => toggle(false))
+        elementRef.value.removeEventListener('mouseenter', onMouseEnter)
+        elementRef.value.removeEventListener('mouseleave', onMouseLeave)
     })
 
     return {isHover, elementRef}
