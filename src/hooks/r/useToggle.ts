@@ -4,7 +4,7 @@ export const useToggle: (initialState?: boolean) => [boolean, (state?: boolean) 
   const [state, setState] = useState(initialState)
 
   const onToggle = useCallback((state?: boolean) => {
-    setState(state === undefined ? !state : state)
+    setState(state ?? !state)
   }, [])
 
   return [state, onToggle]
