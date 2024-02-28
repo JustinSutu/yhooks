@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useState } from 'react';
 import { watchEffect, ref, reactive } from 'vue';
 
 type Pagination = [number, number];
