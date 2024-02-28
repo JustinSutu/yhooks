@@ -1,11 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import {usePrevious} from './usePrevious';
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 
 export const useWhyDidYouUpdate = (name: string, props: Record<string, any>) => {
     const previous = usePrevious(props);
     const [changedProps, setChangedProps] = useState<Record<string, any>>();
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         if (previous) {
             const allKeys = Object.keys({...previous, ...props});
             const deleted: Record<string, any> = {},

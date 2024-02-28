@@ -1,4 +1,5 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useState} from 'react'
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 
 type Pagination = [number, number]
 
@@ -17,7 +18,7 @@ export const usePagination: IUsePagination = (defaultPagination: Pagination = [1
         setPaginationParams([pageNum, pageSize])
     }, [])
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         if (request) {
             void request(pagination)
         }

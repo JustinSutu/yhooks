@@ -1,5 +1,6 @@
-import {useCallback, useEffect} from 'react'
+import {useCallback} from 'react'
 import {useCreateRefs} from './useCreateRefs';
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 
 import type { HTMLElementRefs } from './useCreateRefs';
 
@@ -31,7 +32,7 @@ export const useClickOutside = (
         [refs, callbacks],
     )
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         container.addEventListener('mousedown', handleClickOutside)
 
         return () => {

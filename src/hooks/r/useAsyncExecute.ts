@@ -1,4 +1,5 @@
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useState} from 'react'
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 import {makeAsync} from '../../utils'
 
 import type {ValueOf} from '../../utils/types'
@@ -49,7 +50,7 @@ export const useAsyncExecute: IUseAsync = <T>(func: () => Promise<T>, immedidate
         return data
     }, [func])
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         if (immedidate) {
             void execute()
         }

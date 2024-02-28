@@ -1,11 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 
 type IUseClipboard = (data?: string) => void;
 
 export const useClipboard: IUseClipboard = (data = '') => {
     const [text, setText] = useState<string>(data);
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         (async () => {
             try {
                 await navigator.clipboard.writeText(text);

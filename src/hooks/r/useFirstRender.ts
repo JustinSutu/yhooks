@@ -1,4 +1,5 @@
-import {useEffect, useRef} from 'react'
+import {useRef} from 'react'
+import {useIsomorphicEffect} from './useIsomorphicEffect';
 
 export const useFirstRender = (beforeEffect?: boolean) => {
     const firstRender = useRef<boolean>(true)
@@ -9,7 +10,7 @@ export const useFirstRender = (beforeEffect?: boolean) => {
         return true
     }
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         if (!beforeEffect && firstRender.current) {
             firstRender.current = false
         }

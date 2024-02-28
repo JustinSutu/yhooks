@@ -1,4 +1,6 @@
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useRef, useState} from 'react'
+import {useIsomorphicEffect} from './useIsomorphicEffect';
+
 import type { RefObject } from 'react'
 
 export const useHover = <T extends HTMLElement>(): {isHover: boolean, ref: RefObject<T>} => {
@@ -9,7 +11,7 @@ export const useHover = <T extends HTMLElement>(): {isHover: boolean, ref: RefOb
 
     const onMouseOut = useCallback(() => setIsHover(false), [])
 
-    useEffect(() => {
+    useIsomorphicEffect(() => {
         const target = ref.current
 
         if (target) {
