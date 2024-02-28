@@ -10,7 +10,7 @@ export type IUsePagination = (
   onPaginationChange: (pageNum: number, pageSize: number) => void;
 };
 
-export const usePagination: IUsePagination = (defaultPagination = [1, 10], request) => {
+const usePagination: IUsePagination = (defaultPagination = [1, 10], request) => {
   const pagination = ref<Pagination>(defaultPagination);
 
   const onPaginationChange = (pageNum: number, pageSize: number) => {
@@ -28,3 +28,4 @@ export const usePagination: IUsePagination = (defaultPagination = [1, 10], reque
     onPaginationChange,
   });
 };
+export default usePagination;
