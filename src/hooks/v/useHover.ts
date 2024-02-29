@@ -1,4 +1,6 @@
-import { onBeforeUnmount, onMounted, ref, Ref } from "vue"
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+
+import type { Ref } from 'vue'
 
 interface Options {
     delayEnter?: number
@@ -10,7 +12,7 @@ type UseHover = (options: Options) => {
     elementRef: Ref<HTMLElement | null>
 }
 
-const useHover: UseHover = (options = {}) => {
+export const useHover: UseHover = (options = {}) => {
     const isHover = ref<boolean>(false)
     const elementRef = ref<HTMLElement | null>(null)
 
@@ -56,5 +58,3 @@ const useHover: UseHover = (options = {}) => {
 
     return {isHover, elementRef}
 }
-
-export default useHover
