@@ -1,7 +1,7 @@
 import { ref, reactive, watchEffect } from 'vue'
 import { FetchParams, FetchResult, TableItem } from './types'
 
-export default function useAntdVTable(
+export function useAntdVTable(
   fetchFn: (params: FetchParams) => Promise<FetchResult>,
   options: { defaultPageSize?: number } = {},
 ) {
