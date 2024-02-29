@@ -26,7 +26,11 @@ export type { QueryParams } from './useQueryPath'
 
 export { useRouter } from './useRouter'
 
+export { useScreenToggle } from './useScreenToggle'
+
 export { useToggle } from './useToggle'
 
 export { useWhyDidYouUpdate } from './useWhyDidYouUpdate'
+
+export { useWindowSize } from './useWindowSize'
 
