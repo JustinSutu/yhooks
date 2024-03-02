@@ -19,6 +19,8 @@ export { useIsomorphicEffect } from './useIsomorphicEffect'
 
 export { useLocalStorage } from './useLocalStorage'
 
+export { useLockBodyScroll } from './useLockBodyScroll'
+
 export { useMemoCompare } from './useMemoCompare'
 
 export { usePagination } from './usePagination'
@@ -31,6 +33,8 @@ export type { QueryParams } from './useQueryPath'
 export { useRouter } from './useRouter'
 
 export { useScreenToggle } from './useScreenToggle'
+
+export { useStateOnOutside } from './useStateOnOutside'
 
 export { useToggle } from './useToggle'
 
