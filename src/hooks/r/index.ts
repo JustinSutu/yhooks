@@ -15,6 +15,8 @@ export { useFirstRender } from './useFirstRender'
 
 export { useHover } from './useHover'
 
+export { useIntersecting } from './useIntersecting'
+
 export { useIsomorphicEffect } from './useIsomorphicEffect'
 
 export { useLocalStorage } from './useLocalStorage'
