@@ -36,6 +36,8 @@ export { useScreenToggle } from './useScreenToggle'
 
 export { useStateOnOutside } from './useStateOnOutside'
 
+export { useThrottle } from './useThrottle'
+
 export { useToggle } from './useToggle'
 
 export { useWhyDidYouUpdate } from './useWhyDidYouUpdate'
