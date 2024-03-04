@@ -3,9 +3,13 @@ export { useAsyncExecute } from './useAsyncExecute';
 export { useClickOutside } from './useClickOutside'
 export type { OutsideHookProps } from './useClickOutside'
 
+export { useComponentHover } from './useComponentHover'
+
 export { useCreateRefs } from './useCreateRefs'
 
 export { useDebounceValue } from './useDebounceValue'
+
+export { useDomHover } from './useDomHover'
 
 export { useEventListener } from './useEventListener'
 

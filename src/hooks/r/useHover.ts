@@ -1,29 +1,35 @@
-import {useCallback, useRef, useState} from 'react'
-import {useIsomorphicEffect} from './useIsomorphicEffect';
+import {useEffect, useRef, useState} from 'react';
+import {useComponentHover} from './useComponentHover';
+import {useDomHover} from './useDomHover';
+import {isReactComponent} from '../../utils/isReactComponent';
 
-import type { RefObject } from 'react'
+import type {MutableRefObject} from 'react';
 
-export const useHover = <T extends HTMLElement>(): {isHover: boolean, ref: RefObject<T>} => {
-    const [isHover, setIsHover] = useState<boolean>(false)
-    const ref = useRef<T>(null)
+type IUseCurrencyHover = () =>
+    (ReturnType<typeof useComponentHover> | { isHover: boolean }) & { ref:  MutableRefObject<HTMLElement | null | undefined>};
 
-    const onMouseOver = useCallback(() => setIsHover(true), [])
+export const useHover: IUseCurrencyHover = () => {
+    const ref = useRef<HTMLElement | null | undefined>(null);
+    const { isHover: isComponentHover, onMouseEnter, onMouseLeave } = useComponentHover();
+    const { isHover: isDomHover } = useDomHover();
 
-    const onMouseOut = useCallback(() => setIsHover(false), [])
+    const [isComponent, setIsComponent] = useState<boolean>(false);
 
-    useIsomorphicEffect(() => {
-        const target = ref.current
+    useEffect(() => {
+        setIsComponent(isReactComponent(ref))
+    }, [ref]);
 
-        if (target) {
-            target.addEventListener('mouseover', onMouseOver)
-            target.addEventListener('mouseout', onMouseOut)
-
-            return () => {
-                target.removeEventListener('mouseover', onMouseOver)
-                target.removeEventListener('mouseout', onMouseOut)
-            }
+    if (isComponent) {
+        return {
+            ref,
+            isHover: isComponentHover,
+            onMouseEnter,
+            onMouseLeave,
         }
-    }, [])
+    }
 
-    return { isHover, ref }
-}
+    return {
+        ref,
+        isHover: isDomHover,
+    };
+};
