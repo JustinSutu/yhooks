@@ -1,21 +1,30 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import {useHover} from '../../../src/hooks/vue';
+import { ref } from 'vue';
+import {useEventListener} from '../../../src/hooks/v';
 
-const {isHover, elementRef} = useHover({delayEnter: 1000,  delayLeave: 1000})
-const color = computed(() => isHover.value ? 'yellow' : 'red')
+const elementRef = ref();
+
+const stop = useEventListener(elementRef, 'click', (evt: Event) => {
+  console.log(evt)
+});
+
 </script>
 
 <template>
-  <div class="demo" ref="elementRef">
-    {{isHover ? 'hover' : 'not hover'}}
-  </div>
+    <div class="demo" ref="elementRef"></div>
+    <div class="demo2" @click="stop"></div>
 </template>
 
 <style scoped>
 .demo {
-  width: 100px;
-  height: 100px;
-  background: v-bind(color);
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+
+.demo2 {
+    width: 100px;
+    height: 100px;
+    background: yellow;
 }
 </style>
