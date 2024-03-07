@@ -1,9 +1,9 @@
-export { useAntdVTable } from './useAntdVTable';
+export {useAntdVTable} from './useAntdVTable';
 
-export { useHover } from './useHover';
+export {useHover} from './useHover';
 
-export { usePagination } from './usePagination';
+export {usePagination} from './usePagination';
 
-export { useToggle } from './useToggle';
+export {useToggle} from './useToggle';
 
 export {useEventListener} from './useEventListener';
